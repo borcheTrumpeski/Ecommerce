@@ -1,0 +1,137 @@
+.product-display {
+  display: flex;
+  margin: 10px 170px;
+}
+
+.product-display-left {
+  display: flex;
+  gap: 20px;
+}
+
+.product-display-img-list {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-display-img-list img {
+  height: 163px;
+}
+
+.product-display-main-image {
+  width: 586px;
+  height: 700px;
+}
+
+.product-display-right {
+  margin: 0px 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-display-right h1 {
+  color: #3d3d3d;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.product-display-right-star {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 13px;
+  color: #1c1c1c;
+  font-size: 16px;
+}
+
+.product-display-right-prices {
+  display: flex;
+  margin: 40px 0px;
+  gap: 30px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.product-display-right-prices-old {
+  color: #818181;
+  text-decoration: line-through;
+}
+
+.product-display-right-prices-new {
+  color: #ff4141;
+}
+
+.product-display-right-size h1 {
+  margin-top: 55px;
+  color: #656565;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.product-display-right-sizes {
+  display: flex;
+  margin: 30px 0px;
+  gap: 20px;
+}
+
+.product-display-right-sizes div {
+  padding: 18px 24px;
+  background: #fbfbfb;
+  border: 1px solid #ebebeb;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.product-display-right-button {
+  padding: 20px 40px;
+  width: 200px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background: #ff4141;
+  margin-bottom: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.product-display-right-category {
+  margin-top: 10px;
+}
+
+.product-display-right-category-span {
+  font-weight: 500;
+}
+
+.quantity-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quantity-buttons {
+  padding: 20px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background: #ff4141;
+  margin-bottom: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.quantity-container span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #ddd;
+  margin: 0 10px;
+  margin-bottom: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background: #ff4141;
+}
