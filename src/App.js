@@ -8,6 +8,9 @@ import Footer from './Components/Footer/Footer';
 import AllProducts from './Pages/AllProducts';
 import AboutUs from './Pages/AboutUs';
 import ContactUs from './Pages/ContactUs';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const ProtectedRoute = ({ element, ...rest }) => {
   const isAuthenticated = !!localStorage.getItem('token');
@@ -31,6 +34,7 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
+      <ToastContainer position="bottom-right" />
     </div>
   );
 }

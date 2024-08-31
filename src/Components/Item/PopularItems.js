@@ -1,6 +1,11 @@
 import './Item.css'
+import { useSelector } from 'react-redux';
+
 
 const PopularItems = ({ products }) => {
+    const targetCurrency = useSelector((state) => state.currency.targetCurrency);
+    const rate = useSelector((state) => state.currency.rate);
+
 
     return (
         <div className='item-container'>
@@ -10,8 +15,8 @@ const PopularItems = ({ products }) => {
                         <img src={product.thumbnail} alt='productimage' />
                         <p>{product.title}</p>
                         <div className='item-prices'>
-                            <div className='item-price-old'>old price:{(product.price * (1 + product.discountPercentage / 100)).toFixed(2)}</div>
-                            <div className='item-price-new'>New Price{product.price}</div>
+                            <div className='item-price-old'>old price:{((product.price * rate) * (1 + product.discountPercentage / 100)).toFixed(2) + targetCurrency}</div>
+                            <div className='item-price-new'>New Price{(product.price * rate).toFixed(2) + targetCurrency}</div>
                         </div>
                     </div>
                 ))

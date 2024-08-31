@@ -3,6 +3,11 @@ import './CartItems.css'
 import { useSelector } from 'react-redux';
 import { decreaseQuantity, increaseQuantity, removeItemFromCart } from '../../redux/cartSlice';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FaTrash } from 'react-icons/fa';
+
+
 
 const CartItems = () => {
 
@@ -27,8 +32,9 @@ const CartItems = () => {
     }
 
     const cartItems = useSelector((state) => state.cart.items);
-    const removeFromCartHandler = (id) => {
+    const removeFromCartHandler = (id, title) => {
         dispatch(removeItemFromCart(id));
+        toast(title + " has been succesfully removed from cart")
     };
     const totalPrice = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
     const onIncrease = (prod) => {
@@ -61,7 +67,8 @@ const CartItems = () => {
                             <p>{cartItem.price}$</p>
                             <p> <button onClick={() => onDecrease(cartItem)}>-</button> {cartItem.quantity}<button onClick={() => onIncrease(cartItem)}>+</button></p>
                             <p>{(cartItem.price * cartItem.quantity).toFixed(2)}$    </p>
-                            <button onClick={() => removeFromCartHandler(cartItem.id)}><img src='' alt='remove' className='cart-items-remove-icon' /></button>
+                            {/* <button onClick={() => removeFromCartHandler(cartItem.id, cartItem.title)}><FaTrash className='cart-items-remove-icon' /></button> */}
+                            <FaTrash onClick={() => removeFromCartHandler(cartItem.id, cartItem.title)} />
                         </div>
 
                     })}

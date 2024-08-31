@@ -21,5 +21,61 @@
 
 .collections {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 50px;
+  gap: 20px;
+}
+
+@media (max-width: 1200px) {
+  .new-collections h1 {
+    font-size: 40px;
+  }
+
+  .new-collections hr {
+    width: 150px;
+  }
+}
+
+@media (max-width: 992px) {
+  .new-collections h1 {
+    font-size: 35px;
+  }
+
+  .new-collections hr {
+    width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .new-collections {
+    margin-bottom: 50px;
+  }
+
+  .new-collections h1 {
+    font-size: 30px;
+  }
+
+  .new-collections hr {
+    width: 100px;
+  }
+
+  .collections {
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .new-collections h1 {
+    font-size: 25px;
+  }
+
+  .new-collections hr {
+    width: 80px;
+  }
+
+  .collections {
+    gap: 10px;
+  }
 }

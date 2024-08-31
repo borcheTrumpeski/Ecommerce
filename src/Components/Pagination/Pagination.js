@@ -3,13 +3,12 @@ import './Pagination.css'
 export const Pagination = ({ currentPage, onNextPage, onPrevPage, disableNext }) => {
     return (
         <div className="pagination">
-            <button className='pagination-buttons' onClick={onPrevPage} disabled={currentPage === 1}>
+            {currentPage !== 1 ? <button className='pagination-buttons' onClick={onPrevPage} disabled={currentPage === 1}>
                 Previous
-            </button>
+            </button> : null}
+
             <span>{currentPage}</span>
-            <button className='pagination-buttons' disabled={disableNext} onClick={onNextPage} >
-                Next
-            </button>
+            {!disableNext ? <button className='pagination-buttons' disabled={disableNext} onClick={onNextPage} >Next</button> : null}
         </div>
     );
 };

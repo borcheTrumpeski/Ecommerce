@@ -14,9 +14,9 @@ const Hero = () => {
                         <p>new</p>
                         <img src={bell} alt='bell' />
                     </div>
+                    <p>collection</p>
+                    <p>for everyone</p>
                 </div>
-                <p>collection</p>
-                <p>for everyone</p>
 
                 <div className='hero-latest-button'>
                     <div>Latest Collections</div>

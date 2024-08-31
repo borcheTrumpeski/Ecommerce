@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import './ProductDisplay.css'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart } from '../../redux/cartSlice';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const ProductsDisplay = ({ products }) => {
+    const targetCurrency = useSelector((state) => state.currency.targetCurrency);
+    const rate = useSelector((state) => state.currency.rate);
+
     const dispatch = useDispatch();
     const [productsToDisplay, setproductsToDisplay] = useState([])
     const addToCartHandler = (addProduct) => {
         dispatch(addItemToCart(addProduct));
+        toast(addProduct.title + " has been succesfully added to cart")
     };
     const increaseQuantity = (addProduct) => {
         let prodWithQuantity = productsToDisplay.map(product => product.id === addProduct.id ? { ...product, quantity: product.quantity + 1 } : product)
@@ -43,10 +50,10 @@ const ProductsDisplay = ({ products }) => {
                     <h1>{product.title}</h1>
                     <div className='product-display-right-prices'>
                         <div className='product-display-right-prices-old'>
-                            old price:{(product.price * (1 + product.discountPercentage / 100)).toFixed(2)}
+                            old price:{(product.price * (1 + product.discountPercentage / 100) * rate).toFixed(2) + targetCurrency}
                         </div>
                         <div className='product-display-right-prices-new'>
-                            Price: {product.price}
+                            Price: {(product.price * rate).toFixed(2) + targetCurrency}
                         </div>
                     </div>
                     <div className='product-display-right-decription'>
